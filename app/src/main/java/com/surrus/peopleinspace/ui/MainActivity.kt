@@ -9,7 +9,6 @@ import androidx.ui.foundation.AdapterList
 import androidx.ui.foundation.Text
 import androidx.ui.layout.Column
 import androidx.ui.layout.padding
-import androidx.ui.livedata.observeAsState
 import androidx.ui.material.MaterialTheme
 import androidx.ui.material.TopAppBar
 import androidx.ui.tooling.preview.Preview
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            val peopleState = peopleInSpaceViewModel.peopleInSpace.observeAsState(emptyList())
+            val peopleState = peopleInSpaceViewModel.peopleInSpace.collectAsState(emptyList())
             mainLayout(peopleState)
         }
     }

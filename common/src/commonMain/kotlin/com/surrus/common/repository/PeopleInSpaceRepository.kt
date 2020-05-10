@@ -52,6 +52,8 @@ class PeopleInSpaceRepository() : KoinComponent {
         }
     }
 
+    suspend fun fetchPeople() = peopleInSpaceApi.fetchPeople().people
+
     fun fetchISSPosition(success: (IssPosition) -> Unit) {
         ktorScope {
             val result = peopleInSpaceApi.fetchISSPosition()
